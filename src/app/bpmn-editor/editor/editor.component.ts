@@ -6,7 +6,7 @@ import {CustomPropsProvider} from '../../props-provider/CustomPropsProvider';
 import {CustomPaletteProvider} from '../../props-provider/CustomPaletteProvider';
 import {ElementTemplates} from '../../bpmn-js/bpmn-js';
 
-import * as data from './el.json';
+// import * as data from './el.json';
 
 declare var require: any;
 
@@ -48,25 +48,25 @@ export class EditorComponent implements OnInit {
 
   etl = [
     {
-      "name": "Priority Task",
-      "id": "com.mycompany.whateverdomain.PriorityTask",
-      "appliesTo": [
-        "bpmn:UserTask"
+      'name': 'Priority Task',
+      'id': 'com.mycompany.whateverdomain.PriorityTask',
+      'appliesTo': [
+        'bpmn:UserTask'
       ],
-      "properties": [
+      'properties': [
         {
-          "label": "Priority",
-          "description": "The priority assigned to this task",
-          "type": "Dropdown",
-          "choices": [
-            { "name": "low", "value": "50" },
-            { "name": "medium", "value": "100" },
-            { "name": "high", "value": "150" }
+          'label': 'Priority',
+          'description': 'The priority assigned to this task',
+          'type': 'Dropdown',
+          'choices': [
+            { 'name': 'low', 'value': '50' },
+            { 'name': 'medium', 'value': '100' },
+            { 'name': 'high', 'value': '150' }
           ],
-          "value": "50",
-          "binding": {
-            "type": "property",
-            "name": "camunda:priority"
+          'value': '50',
+          'binding': {
+            'type': 'property',
+            'name': 'camunda:priority'
           }
         }
       ]
@@ -97,7 +97,7 @@ export class EditorComponent implements OnInit {
         // {['customElementsPropertiesActivator']: ['type', require('bpmn-js-properties-panel/lib/provider/camunda/element-templates/CustomElementsPropertiesActivator')]},
         // {['elementTemplatesLoader']: ['type', require('bpmn-js-properties-panel/lib/provider/camunda/element-templates/elementTemplatesLoader')]}
       ],
-      elementTemplates: this.data
+      elementTemplates: this.etl
       ,
       propertiesPanel: {
         parent: '#properties1'
