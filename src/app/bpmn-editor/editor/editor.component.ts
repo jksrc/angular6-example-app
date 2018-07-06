@@ -85,7 +85,9 @@ export class EditorComponent implements OnInit {
       height: '400px',
       additionalModules: [
         PropertiesPanelModule,
-        CamundaExtensionModule,
+        // CamundaExtensionModule,
+        // {['CamundaExtensionModule']: ['type', CamundaExtensionModule]},
+        // {[InjectionNames.camundaExtensionModule]: ['type', CamundaExtensionModule]},
         {[InjectionNames.camundaPropertiesProvider]: ['type', CamundaPropertiesProvider.propertiesProvider[1]]},
         {[InjectionNames.propertiesProvider]: ['type', CustomPropsProvider]},
         {[InjectionNames.elementTemplates]: ['type', ElementTemplates]},
@@ -97,8 +99,8 @@ export class EditorComponent implements OnInit {
       propertiesPanel: {
         parent: '#properties1'
       },
-      moddleExtension: {
-        custom: require('camunda-bpmn-moddle/resources/camunda.json')
+      moddleExtensions: {
+        camunda: _CamundaModdle
       }
     });
   }
