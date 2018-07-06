@@ -6,7 +6,7 @@ import {CustomPropsProvider} from '../../props-provider/CustomPropsProvider';
 import {CustomPaletteProvider} from '../../props-provider/CustomPaletteProvider';
 import {ElementTemplates} from '../../bpmn-js/bpmn-js';
 
-// import * as data from './el.json';
+import * as data from './el.json';
 
 declare var require: any;
 
@@ -85,16 +85,19 @@ export class EditorComponent implements OnInit {
       height: '400px',
       additionalModules: [
         PropertiesPanelModule,
+        ElementTemplates,
         // CamundaExtensionModule,
         // {['CamundaExtensionModule']: ['type', CamundaExtensionModule]},
         // {[InjectionNames.camundaExtensionModule]: ['type', CamundaExtensionModule]},
         {[InjectionNames.camundaPropertiesProvider]: ['type', CamundaPropertiesProvider.propertiesProvider[1]]},
         {[InjectionNames.propertiesProvider]: ['type', CustomPropsProvider]},
-        {[InjectionNames.elementTemplates]: ['type', ElementTemplates]},
+        // {[InjectionNames.elementTemplates]: ['type', ElementTemplates]},
         {[InjectionNames.originalPaletteProvider]: ['type', OriginalPaletteProvider]},
-        {[InjectionNames.paletteProvider]: ['type', CustomPaletteProvider]}
+        {[InjectionNames.paletteProvider]: ['type', CustomPaletteProvider]},
+        // {['customElementsPropertiesActivator']: ['type', require('bpmn-js-properties-panel/lib/provider/camunda/element-templates/CustomElementsPropertiesActivator')]},
+        // {['elementTemplatesLoader']: ['type', require('bpmn-js-properties-panel/lib/provider/camunda/element-templates/elementTemplatesLoader')]}
       ],
-      elementTemplates: this.etl
+      elementTemplates: this.data
       ,
       propertiesPanel: {
         parent: '#properties1'

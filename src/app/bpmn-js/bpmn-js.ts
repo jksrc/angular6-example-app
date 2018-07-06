@@ -5,7 +5,7 @@ import _EntryFactory from 'bpmn-js-properties-panel/lib/factory/EntryFactory';
 import _PaletteProvider from 'bpmn-js/lib/features/palette/PaletteProvider';
 
 import * as _CamundaPropertiesProvider from 'bpmn-js-properties-panel/lib/provider/camunda';
-import * as _ElementTemplates from 'bpmn-js-properties-panel/lib/provider/camunda/element-templates/ElementTemplates';
+import _ElementTemplates from 'bpmn-js-properties-panel/lib/provider/camunda/element-templates';
 import _CamundaExtensionModule from 'camunda-bpmn-moddle/lib';
 
 declare var require: any;
