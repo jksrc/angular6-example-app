@@ -1,10 +1,10 @@
+import { CamundaPropertiesProvider, CamundaExtensionModule, _CamundaModdle } from './../../bpmn-js/bpmn-js';
 import {Component, OnInit} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Modeler, OriginalPropertiesProvider, PropertiesPanelModule, InjectionNames, OriginalPaletteProvider} from '../../bpmn-js/bpmn-js';
-import {CamundaPropertiesProvider} from '../../bpmn-js/bpmn-js'; // '../../props-provider/CustomPropsProvider';
+import {CustomPropsProvider} from '../../props-provider/CustomPropsProvider';
 import {CustomPaletteProvider} from '../../props-provider/CustomPaletteProvider';
 import {ElementTemplates} from '../../bpmn-js/bpmn-js';
-// import {CamundaModdleDescriptor} from '../../bpmn-js/bpmn-js';
 
 // import * as data from './el.json';
 
@@ -85,15 +85,12 @@ export class EditorComponent implements OnInit {
       height: '400px',
       additionalModules: [
         PropertiesPanelModule,
-
-        // Re-use original bpmn-properties-module, see CustomPropsProvider
-        {[InjectionNames.bpmnPropertiesProvider]: ['type', OriginalPropertiesProvider.propertiesProvider[1]]},
-        {[InjectionNames.propertiesProvider]: ['type', CamundaPropertiesProvider.propertiesProvider[1]]},
-
-        // Re-use original palette, see CustomPaletteProvider
+        CamundaExtensionModule,
+        {[InjectionNames.camundaPropertiesProvider]: ['type', CamundaPropertiesProvider.propertiesProvider[1]]},
+        {[InjectionNames.propertiesProvider]: ['type', CustomPropsProvider]},
+        {[InjectionNames.elementTemplates]: ['type', ElementTemplates]},
         {[InjectionNames.originalPaletteProvider]: ['type', OriginalPaletteProvider]},
-        {[InjectionNames.paletteProvider]: ['type', CustomPaletteProvider]},
-        {['elementTemplates']: ['type', ElementTemplates]},
+        {[InjectionNames.paletteProvider]: ['type', CustomPaletteProvider]}
       ],
       elementTemplates: this.etl
       ,
@@ -101,7 +98,7 @@ export class EditorComponent implements OnInit {
         parent: '#properties1'
       },
       moddleExtension: {
-        custom: customModdle
+        custom: require('camunda-bpmn-moddle/resources/camunda.json')
       }
     });
   }
