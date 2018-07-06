@@ -17,6 +17,7 @@ import {TimingInterceptor} from './shared/interceptors/timing.interceptor';
 import {NgxExampleLibraryModule} from '@ismaestro/ngx-example-library';
 import {ServiceWorkerModule} from '@angular/service-worker';
 import {environment} from '../environments/environment';
+import { BpmnEditorModule } from './bpmn-editor/bpmn-editor.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import {environment} from '../environments/environment';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    BpmnEditorModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

@@ -1,0 +1,21 @@
+#properties1 {
+  position: absolute;
+  top: 100px;
+  bottom: 0;
+  right: 0;
+  width: 260px;
+  z-index: 10;
+  border-left: 1px solid #ccc;
+  overflow: auto;
+}
+
+
+#canvas2 {
+  position: absolute;
+  top: 100;
+  left: 0;
+  width: 1000px;
+  z-index: 10;
+  border-left: 1px solid #ccc;
+  overflow: auto;
+}

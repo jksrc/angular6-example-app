@@ -42,7 +42,8 @@ export class NavComponent implements OnInit {
     this.translateService.get(['home', 'heroesList'], {}).subscribe((texts: any) => {
       this.menuItems = [
         {link: '/', name: texts['home']},
-        {link: '/' + AppConfig.routes.heroes, name: texts['heroesList']}
+        {link: '/' + AppConfig.routes.heroes, name: texts['heroesList']},
+        {link: '/' + 'editor', name: 'editor'}
       ];
     });
   }
